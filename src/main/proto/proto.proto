@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "kr.syeyoung.dungeonsguide.rpc";
+
+option java_outer_classname = "HelloWorldProto";
+option java_multiple_files = true;
+package helloworld;
+
+
+service PlayerService {
+  rpc getPlayer(PlayerRequest) returns (PlayerResponse);
+  rpc subscribe(PlayerRequest) returns (stream PlayerResponse);
+}
+
+message PlayerRequest {
+  string uuid = 1;
+}
+
+message PlayerResponse {
+  bool online = 1;
+}
